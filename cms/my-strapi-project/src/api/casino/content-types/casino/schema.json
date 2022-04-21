@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "casinos",
+  "info": {
+    "singularName": "casino",
+    "pluralName": "casinos",
+    "displayName": "Casino",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Content": {
+      "type": "richtext"
+    },
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "Seo": {
+      "type": "component",
+      "repeatable": true,
+      "component": "seo.seo"
+    },
+    "banking_methods": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::banking-method.banking-method"
+    },
+    "providers_": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::provider.provider"
+    }
+  }
+}

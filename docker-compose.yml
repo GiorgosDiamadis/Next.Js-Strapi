@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+  strapi:
+    build: cms
+    container_name: cms
+    networks:
+      - strapi-app-network
+    volumes:
+      - ./cms:/srv/app
+    ports:
+      - "1337:1337"
+
+  database_nextjs_strapi:
+    image: mariadb
+    container_name: db
+    volumes:
+      - db-data:/var/lib/mysql/
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: strapi
+      MYSQL_PASSWORD: root
+      MYSQL_USER: user
+    ports:
+      - "3306:3306"
+    networks:
+      - strapi-app-network
+
+  next:
+    build: nextjs
+    container_name: "nextjs"
+    depends_on:
+      - "strapi"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./nextjs:/srv/app/
+    networks:
+      - strapi-app-network
+
+networks:
+  strapi-app-network:
+    driver: bridge
+
+volumes:
+  db-data:

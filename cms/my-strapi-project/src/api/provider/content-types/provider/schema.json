@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "providers",
+  "info": {
+    "singularName": "provider",
+    "pluralName": "providers",
+    "displayName": "Provider"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Provider": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    }
+  }
+}

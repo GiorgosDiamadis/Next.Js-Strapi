@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "banking_methods",
+  "info": {
+    "singularName": "banking-method",
+    "pluralName": "banking-methods",
+    "displayName": "BankingMethod",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Method": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    }
+  }
+}
