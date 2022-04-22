@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "providers",
+  "collectionName": "compatible_devices",
   "info": {
-    "singularName": "provider",
-    "pluralName": "providers",
-    "displayName": "Provider",
+    "singularName": "compatible-device",
+    "pluralName": "compatible-devices",
+    "displayName": "CompatibleDevice",
     "description": ""
   },
   "options": {

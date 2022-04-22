@@ -1,27 +1,52 @@
 const shortcodeMng = require("../Shortcode");
+const shortcodeManager = shortcodeMng.getInstance();
 
 module.exports.ControllerFind = async (ctx, strapi, model) => {
   const {slug} = ctx.query;
   var data;
+  const populate = [
+    "Seo",
+    "thumbnail",
+    "banking_methods",
+    "providers_",
+    "deposit_bonuses",
+    "compatible_devices",
+    "customer_supports",
+    "games_"
+  ]
   if (slug !== undefined) {
     data = await strapi.entityService.findMany(model, {
       filters: {slug},
-      populate: ["Seo"]
+      populate
     })
   } else {
     data = await strapi.entityService.findMany(model,
-      {populate: ["Seo"]})
+      {populate})
   }
 
 
-  for (const dataEntry of data) {
-    dataEntry.Content = dataEntry.Content.replace(/"\//g, '"http://localhost:1337/')
-    const shortcodeManager = shortcodeMng.getInstance();
-    dataEntry.Content = await shortcodeManager.transform(dataEntry.Content)
+  if (data[Symbol.iterator] === 'function') {
+    for (const dataEntry of data) {
+
+      dataEntry.Content = await CompileContent(dataEntry.Content)
+    }
+
+    return data;
   }
+
+  data.Content = await CompileContent(data.Content)
 
   return data;
 }
+const CompileContent = async (content) => {
+  if (!content)
+    return content
+  content = content.replace(/"\//g, '"http://localhost:1337/')
+  content = await shortcodeManager.transform(content)
+  return content;
+}
+
+module.exports.CompileContent = CompileContent;
 
 module.exports.AfterCreate = async (event, model) => {
   const {result} = event;

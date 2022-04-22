@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "providers",
+  "collectionName": "deposit_bonuses",
   "info": {
-    "singularName": "provider",
-    "pluralName": "providers",
-    "displayName": "Provider",
+    "singularName": "deposit-bonus",
+    "pluralName": "deposit-bonuses",
+    "displayName": "DepositBonus",
     "description": ""
   },
   "options": {

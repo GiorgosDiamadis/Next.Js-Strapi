@@ -17,10 +17,20 @@ class Casino {
         query[key] = args[key]
       }
     })
+    const populate = [
+      "Seo",
+      "thumbnail",
+      "banking_methods",
+      "providers_",
+      "deposit_bonuses",
+      "compatible_devices",
+      "customer_supports",
+      "games_"
+    ]
 
     const data = await strapi.db.query("api::casino.casino").findMany(
       {
-        populate: ["banking_methods"],
+        populate,
         where: query
       });
 

@@ -1,11 +1,11 @@
 export async function GetStaticProps(context, model) {
-    const {slug} = context.params;
-    const pages = await fetch(`http://cms:1337/api/${model}?slug=${slug}`)
+    const {slug} = context.params ?? "";
+    const pages = await fetch(`http://cms:1337/api/${model}?${slug ? 'slug==' + slug : ''}`)
     const pageData = await pages.json();
 
     return {
         props: {
-            data: pageData[0]
+            data: pageData[0] ?? pageData
         }
         , revalidate: 5
     }

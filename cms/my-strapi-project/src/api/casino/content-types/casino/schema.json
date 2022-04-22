@@ -23,7 +23,7 @@
     },
     "Seo": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "seo.seo"
     },
     "banking_methods": {
@@ -35,6 +35,70 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::provider.provider"
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "deposit_bonuses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::deposit-bonus.deposit-bonus"
+    },
+    "bonus_code": {
+      "type": "string"
+    },
+    "no_deposit_bonus": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "affiliate_link": {
+      "type": "string"
+    },
+    "sister_sites": {
+      "type": "string"
+    },
+    "compatible_devices": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::compatible-device.compatible-device"
+    },
+    "customer_supports": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::customer-support.customer-support"
+    },
+    "games_": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::game.game"
+    },
+    "withdraw_limits": {
+      "type": "decimal"
+    },
+    "games_and_providers": {
+      "type": "decimal"
+    },
+    "reliability": {
+      "type": "decimal"
+    },
+    "welcome_bonus": {
+      "type": "decimal"
+    },
+    "payout_speed": {
+      "type": "decimal"
     }
   }
 }

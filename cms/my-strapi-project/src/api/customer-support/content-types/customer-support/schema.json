@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "providers",
+  "collectionName": "customer_supports",
   "info": {
-    "singularName": "provider",
-    "pluralName": "providers",
-    "displayName": "Provider",
+    "singularName": "customer-support",
+    "pluralName": "customer-supports",
+    "displayName": "CustomerSupport",
     "description": ""
   },
   "options": {

@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "providers",
+  "collectionName": "games",
   "info": {
-    "singularName": "provider",
-    "pluralName": "providers",
-    "displayName": "Provider",
+    "singularName": "game",
+    "pluralName": "games",
+    "displayName": "Game",
     "description": ""
   },
   "options": {
