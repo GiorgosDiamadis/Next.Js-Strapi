@@ -3,7 +3,6 @@ import {GetStaticProps} from "../utils/Isr";
 export default function Home({data}) {
 
     return <div>
-        <h1>{data.title}</h1>
         <div style={{wordBreak: "break-word"}} dangerouslySetInnerHTML={{__html: data.Content}}>
         </div>
     </div>
