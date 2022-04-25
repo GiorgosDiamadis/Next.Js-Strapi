@@ -24,18 +24,6 @@ module.exports.ControllerFind = async (ctx, strapi, model) => {
       {populate})
   }
 
-
-  if (data[Symbol.iterator] === 'function') {
-    for (const dataEntry of data) {
-
-      dataEntry.Content = await CompileContent(dataEntry.Content)
-    }
-
-    return data;
-  }
-
-  data.Content = await CompileContent(data.Content)
-
   return data;
 }
 const CompileContent = async (content) => {

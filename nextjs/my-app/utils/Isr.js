@@ -3,6 +3,7 @@ export async function GetStaticProps(context, model) {
     const pages = await fetch(`http://cms:1337/api/${model}?${slug ? 'slug=' + slug : ''}`)
     const pageData = await pages.json();
 
+
     return {
         props: {
             data: pageData[0] ?? pageData
